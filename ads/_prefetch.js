@@ -25,7 +25,7 @@ export const adPrefetch = {
   doubleclick: 'https://www.googletagservices.com/tag/js/gpt.js',
   a9: 'https://c.amazon-adsystem.com/aax2/assoc.js',
   adsense: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-  teads: 'https://cdn.teads.tv/media/format.js',
+  teads: 'https://cdn.teads.tv/media/format/v3/teads-format.js',
 };
 
 /**

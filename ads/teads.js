@@ -14,17 +14,53 @@
  * limitations under the License.
  */
 
-import {writeScript, validateSrcPrefix, validateSrcContains} from '../src/3p';
+import {loadScript} from '../src/3p';
 
 /**
  * @param {!Window} global
  * @param {!Object} data
  */
 export function teads(global, data) {
-  const src = data.src;
-  validateSrcPrefix('https:', src);
-  validateSrcContains('cdn.teads.tv/media/format.js', src);
-  loadScript(global, src, function() {
-  	alert('teads are loaded!')
+  // temp for debug purpose
+  global.document.cookie = ''//'teadsDebugLevel=all,debug'
+
+  // teads tag
+  global._ttp = {};
+  global._ttp[0] = [{
+    pid: 123,
+    format: 'inread',
+    slot: {
+      selector: '#c',
+      insertInside: true,
+      minimum: 1
+    }
+  }];
+
+  global._tta = {};
+  global._tta[0] = [{
+    type: 'VastUrl',
+    content: 'https://a.teads.tv/vast/get/1550',
+    settings: {
+      values: {
+        threshold: 50,
+        pageId: 0,
+        placementId: 123,
+        placementFormat: 'inread'
+      },
+      components: {},
+      behaviors: {
+        launch: 'auto',
+        videoStart: 'auto',
+        videoPause: 'no'
+      }
+    }
+  }];
+
+  window.context.observeIntersection(function(changes) {
+    changes.forEach(function(c) {
+      console.info('TEADS', 'Height of intersection', c.intersectionRect.height);
+    });
   });
+
+  loadScript(global, 'https://cdn.teads.tv/media/format/v3/teads-format.js');
 }
