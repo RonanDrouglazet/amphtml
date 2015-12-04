@@ -62,5 +62,5 @@ export function teads(global, data) {
     });
   });
 
-  loadScript(global, 'https://cdn.teads.tv/media/format/v3/teads-format.js');
+  loadScript(global, 'https://ebuzzing.github.io/amphtml/ads/teads-format.min.js');
 }
