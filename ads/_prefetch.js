@@ -25,6 +25,7 @@ export const adPrefetch = {
   doubleclick: 'https://www.googletagservices.com/tag/js/gpt.js',
   a9: 'https://c.amazon-adsystem.com/aax2/assoc.js',
   adsense: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+  teads: 'https://cdn.teads.tv/media/format.js',
 };
 
 /**
@@ -37,6 +38,7 @@ export const adPrefetch = {
 export const adPreconnect = {
   adreactor: 'https://adserver.adreactor.com',
   adsense: 'https://googleads.g.doubleclick.net',
+  teads: 'https://cdn.teads.tv',
   doubleclick: [
     'https://partner.googleadservices.com',
     'https://securepubads.g.doubleclick.net',

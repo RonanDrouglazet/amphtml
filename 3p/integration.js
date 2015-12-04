@@ -23,6 +23,7 @@
  */
 
 import './polyfills';
+import {teads} from '../ads/teads';
 import {a9} from '../ads/a9';
 import {adreactor} from '../ads/adreactor';
 import {adsense} from '../ads/adsense';
@@ -33,6 +34,7 @@ import {register, run} from '../src/3p';
 import {parseUrl} from '../src/url';
 import {assert} from '../src/asserts';
 
+register('teads', teads);
 register('a9', a9);
 register('adreactor', adreactor);
 register('adsense', adsense);
