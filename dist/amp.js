@@ -119,10 +119,19 @@ function installAd(win) {
     /** @override  */
 
     AmpAd.prototype.renderOutsideViewport = function renderOutsideViewport() {
-      return true;
-    };
+      // Before the user has scrolled we only render ads in view. This prevents
+      // excessive jank in situations like swiping through a lot of articles.
+      if (!this.getViewport().hasScrolled()) {
+        return false;
+      };
 
-    AmpAd.prototype.prerenderAllowed = function prerenderAllowed() {
+      // If another ad is currently loading we only load ads that are currently
+      // in viewport.
+      if (loadingAdsCount > 0) {
+        return false;
+      }
+
+      // Otherwise the ad is good to go.
       return true;
     };
 
@@ -2466,7 +2475,7 @@ function prefetchBootstrap(window) {
   preconnect.prefetch(url);
   // While the URL may point to a custom domain, this URL will always be
   // fetched by it.
-  preconnect.prefetch('https://3p.ampproject.net/1453302651058/f.js');
+  preconnect.prefetch('https://3p.ampproject.net/1453326962147/f.js');
 }
 
 /**
@@ -2488,7 +2497,7 @@ function getBootstrapBaseUrl(parentWindow) {
  * @return {string}
  */
 function getDefaultBootstrapBaseUrl(parentWindow) {
-  var url = 'https://3p.ampproject.net/1453302651058/frame.html';
+  var url = 'https://3p.ampproject.net/1453326962147/frame.html';
   if (_mode.getMode().localDev) {
     url = 'http://ads.localhost:' + parentWindow.location.port + '/dist.3p/current' + (_mode.getMode().minified ? '-min/frame' : '/frame.max') + '.html';
   }
@@ -2512,7 +2521,7 @@ function getCustomBootstrapBaseUrl(parentWindow) {
   // practice. People could still redirect to the same origin, but they cannot
   // redirect to the proxy origin which is the important one.
   _asserts.assert(_url.parseUrl(url).origin != _url.parseUrl(parentWindow.location.href).origin, '3p iframe url must not be on the same origin as the current document ' + '%s in element %s.', url, meta);
-  return url + '?1453302651058';
+  return url + '?1453326962147';
 }
 
 },{"../src/layout":75,"./asserts":55,"./document-info":62,"./mode":78,"./preconnect":84,"./service":88,"./string":96,"./url":102}],52:[function(require,module,exports){
@@ -2677,9 +2686,9 @@ try {
 // tag to give some information that can be used in error reports.
 // (At least by sophisticated users).
 if (window.console) {
-  (console.info || console.log).call(console, 'Powered by AMP ⚡ HTML – Version 1453302651058');
+  (console.info || console.log).call(console, 'Powered by AMP ⚡ HTML – Version 1453326962147');
 }
-document.documentElement.setAttribute('amp-version', '1453302651058');
+document.documentElement.setAttribute('amp-version', '1453326962147');
 
 },{"../build/css":2,"../builtins/amp-ad":3,"../builtins/amp-img":4,"../builtins/amp-pixel":5,"../builtins/amp-video":6,"./amp-core-service":53,"./custom-element":60,"./document-click":61,"./error":66,"./performance":81,"./polyfills":83,"./pull-to-refresh":85,"./runtime":87,"./styles":98,"./template":99,"./validator-integration":104}],55:[function(require,module,exports){
 exports.__esModule = true;
@@ -5479,7 +5488,7 @@ function getErrorReportUrl(message, filename, line, col, error) {
   // ../tools/errortracker
   // It stores error reports via https://cloud.google.com/error-reporting/
   // for analyzing production issues.
-  var url = 'https://amp-error-reporting.appspot.com/r' + '?v=' + encodeURIComponent('1453302651058') + '&m=' + encodeURIComponent(message);
+  var url = 'https://amp-error-reporting.appspot.com/r' + '?v=' + encodeURIComponent('1453326962147') + '&m=' + encodeURIComponent(message);
 
   if (error) {
     var tagName = error && error.associatedElement ? error.associatedElement.tagName : 'u'; // Unknown

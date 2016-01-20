@@ -650,7 +650,7 @@ function prefetchBootstrap(window) {
   preconnect.prefetch(url);
   // While the URL may point to a custom domain, this URL will always be
   // fetched by it.
-  preconnect.prefetch('https://3p.ampproject.net/1453302651058/f.js');
+  preconnect.prefetch('https://3p.ampproject.net/1453326962147/f.js');
 }
 
 /**
@@ -672,7 +672,7 @@ function getBootstrapBaseUrl(parentWindow) {
  * @return {string}
  */
 function getDefaultBootstrapBaseUrl(parentWindow) {
-  var url = 'https://3p.ampproject.net/1453302651058/frame.html';
+  var url = 'https://3p.ampproject.net/1453326962147/frame.html';
   if (_mode.getMode().localDev) {
     url = 'http://ads.localhost:' + parentWindow.location.port + '/dist.3p/current' + (_mode.getMode().minified ? '-min/frame' : '/frame.max') + '.html';
   }
@@ -696,7 +696,7 @@ function getCustomBootstrapBaseUrl(parentWindow) {
   // practice. People could still redirect to the same origin, but they cannot
   // redirect to the proxy origin which is the important one.
   _asserts.assert(_url.parseUrl(url).origin != _url.parseUrl(parentWindow.location.href).origin, '3p iframe url must not be on the same origin as the current document ' + '%s in element %s.', url, meta);
-  return url + '?1453302651058';
+  return url + '?1453326962147';
 }
 
 },{"../src/layout":19,"./asserts":5,"./document-info":8,"./mode":22,"./preconnect":26,"./service":28,"./string":30,"./url":34}],5:[function(require,module,exports){
@@ -3094,7 +3094,7 @@ function getErrorReportUrl(message, filename, line, col, error) {
   // ../tools/errortracker
   // It stores error reports via https://cloud.google.com/error-reporting/
   // for analyzing production issues.
-  var url = 'https://amp-error-reporting.appspot.com/r' + '?v=' + encodeURIComponent('1453302651058') + '&m=' + encodeURIComponent(message);
+  var url = 'https://amp-error-reporting.appspot.com/r' + '?v=' + encodeURIComponent('1453326962147') + '&m=' + encodeURIComponent(message);
 
   if (error) {
     var tagName = error && error.associatedElement ? error.associatedElement.tagName : 'u'; // Unknown

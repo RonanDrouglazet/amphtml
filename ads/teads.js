@@ -21,10 +21,8 @@ import {loadScript} from '../src/3p';
  * @param {!Object} data
  */
 export function teads(global, data) {
-  // temp for debug purpose
-  global.document.cookie = ''//'teadsDebugLevel=all,debug'
 
-  // teads tag
+  // temp teads tag for POC
   global._ttp = {};
   global._ttp[0] = [{
     pid: 123,
@@ -62,6 +60,11 @@ export function teads(global, data) {
     });
   });
 
-  loadScript(global, 'https://ebuzzing.github.io/amphtml/ads/teads-format.min.js');
+  // temp dev env for POC
+  global.teads = {
+    ASSETS_URL: 'https://ebuzzing.github.io/amphtml/extensions/amp-teads/0.1/temp_teads_dist'
+  }
+
+  loadScript(global, 'https://ebuzzing.github.io/amphtml/extensions/amp-teads/0.1/temp_teads_dist/teads-format.min.js');
   //window.context.noContentAvailable()
 }

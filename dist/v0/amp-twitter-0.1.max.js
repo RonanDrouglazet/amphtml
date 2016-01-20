@@ -398,7 +398,7 @@ function prefetchBootstrap(window) {
   preconnect.prefetch(url);
   // While the URL may point to a custom domain, this URL will always be
   // fetched by it.
-  preconnect.prefetch('https://3p.ampproject.net/1453302651058/f.js');
+  preconnect.prefetch('https://3p.ampproject.net/1453326962147/f.js');
 }
 
 /**
@@ -420,7 +420,7 @@ function getBootstrapBaseUrl(parentWindow) {
  * @return {string}
  */
 function getDefaultBootstrapBaseUrl(parentWindow) {
-  var url = 'https://3p.ampproject.net/1453302651058/frame.html';
+  var url = 'https://3p.ampproject.net/1453326962147/frame.html';
   if (_mode.getMode().localDev) {
     url = 'http://ads.localhost:' + parentWindow.location.port + '/dist.3p/current' + (_mode.getMode().minified ? '-min/frame' : '/frame.max') + '.html';
   }
@@ -444,7 +444,7 @@ function getCustomBootstrapBaseUrl(parentWindow) {
   // practice. People could still redirect to the same origin, but they cannot
   // redirect to the proxy origin which is the important one.
   _asserts.assert(_url.parseUrl(url).origin != _url.parseUrl(parentWindow.location.href).origin, '3p iframe url must not be on the same origin as the current document ' + '%s in element %s.', url, meta);
-  return url + '?1453302651058';
+  return url + '?1453326962147';
 }
 
 },{"../src/layout":7,"./asserts":4,"./document-info":5,"./mode":8,"./preconnect":10,"./service":11,"./string":12,"./url":14}],4:[function(require,module,exports){
