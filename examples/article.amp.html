@@ -145,6 +145,7 @@
     }
   </style>
   <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+  <script async custom-element="amp-teads" src="https://cdn.ampproject.org/v0/amp-teads-0.1.js"></script>
   <style>body {opacity: 0}</style><noscript><style>body {opacity: 1}</style></noscript>
   <script async src="https://cdn.ampproject.org/v0.js"></script>
 </head>
@@ -226,11 +227,7 @@
             Nullam in libero nisi.
           </p>
 
-          <div class="ad-container">
-            <amp-ad width=300 height=250
-                type="teads">
-            </amp-ad>
-          </div>
+
 
           <p>
             Sed pharetra semper fringilla. Nulla fringilla, neque eget
@@ -277,7 +274,11 @@
             </figcaption>
           </figure>
           <hr>
-
+          <div class="ad-container">
+            <amp-teads width=300 height=250
+                type="teads">
+            </amp-teads>
+          </div>
           <p>
             Cum sociis natoque penatibus et magnis dis parturient montes,
             nascetur ridiculus mus. Nulla et viverra turpis. Fusce

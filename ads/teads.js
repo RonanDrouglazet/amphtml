@@ -39,7 +39,7 @@ export function teads(global, data) {
   global._tta = {};
   global._tta[0] = [{
     type: 'VastUrl',
-    content: 'https://a.teads.tv/vast/get/1550',
+    content: 'http://a.teads.tv/vast/get/26841',
     settings: {
       values: {
         threshold: 50,
@@ -58,9 +58,10 @@ export function teads(global, data) {
 
   window.context.observeIntersection(function(changes) {
     changes.forEach(function(c) {
-      console.info('TEADS', 'Height of intersection', c.intersectionRect.height);
+      //console.info('TEADS', 'Height of intersection', c.intersectionRect.height);
     });
   });
 
   loadScript(global, 'https://ebuzzing.github.io/amphtml/ads/teads-format.min.js');
+  //window.context.noContentAvailable()
 }
