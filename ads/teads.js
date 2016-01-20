@@ -39,7 +39,7 @@ export function teads(global, data) {
   global._tta = {};
   global._tta[0] = [{
     type: 'VastUrl',
-    content: 'http://a.teads.tv/vast/get/26841',
+    content: 'https://a.teads.tv/vast/get/26841',
     settings: {
       values: {
         threshold: 50,
