@@ -26,7 +26,7 @@ export function teads(global, data) {
   global._ttp = {};
   global._ttp[0] = [{
     pid: 123,
-    format: 'inread',
+    format: 'inboard',
     slot: {
       selector: '#c',
       insertInside: true,
@@ -43,7 +43,7 @@ export function teads(global, data) {
         threshold: 50,
         pageId: 0,
         placementId: 123,
-        placementFormat: 'inread'
+        placementFormat: 'inboard'
       },
       components: {},
       behaviors: {
