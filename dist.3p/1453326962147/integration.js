@@ -609,7 +609,7 @@ function teads(global, data) {
   window.context.observeIntersection(function (changes) {
     changes.forEach(function (c) {
       //console.info('TEADS', 'Height of intersection', c.intersectionRect.height);
-      if (!c.intersectionRect.height && global.teads.instances && global.teads.instances.inboard.length) {
+      if (c.intersectionRect.height <= 125 && global.teads.instances && global.teads.instances.inboard.length) {
         global.teads.instances.inboard[0].vpaidAd.pauseAd();
         console.log('PAUSE');
       } else if (global.teads.instances && global.teads.instances.inboard.length) {
